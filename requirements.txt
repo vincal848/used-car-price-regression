@@ -1,0 +1,9 @@
+pandas>=2.0
+numpy>=1.26
+statsmodels>=0.14
+
+# Only needed for validate.py's figure. Fitting and the test suite do not import it.
+matplotlib>=3.8
+
+# Only needed to read/write .xlsx files (pandas uses it as the Excel engine).
+openpyxl>=3.1
