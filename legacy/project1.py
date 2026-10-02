@@ -4,8 +4,7 @@ is known to be incorrect.
 This is the original ISQS 4370 coursework script. It loads `UsedCarData.xlsx` from a
 hardcoded path on a machine that no longer exists, label-encodes three columns, and
 runs seven `sm.OLS` regressions on `Price`, dropping one variable at a time by eyeing
-a printed VIF list. Preserved because the README's "What was wrong" section refers to
-it; do not import it.
+a printed VIF list. Do not import it.
 
 Known defects, each with a named regression test:
 
