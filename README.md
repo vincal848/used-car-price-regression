@@ -1,6 +1,6 @@
 # isqs4370
 
-[![tests](https://github.com/vincal848/isqs4370/actions/workflows/tests.yml/badge.svg)](https://github.com/vincal848/isqs4370/actions/workflows/tests.yml)
+[![tests](https://github.com/vincal848/used-car-price-regression/actions/workflows/tests.yml/badge.svg)](https://github.com/vincal848/used-car-price-regression/actions/workflows/tests.yml)
 
 This project came out of a final course project for ISQS 4370 (Texas Tech), where I
 loaded a used-car spreadsheet, label-encoded a few columns, and ran seven OLS
