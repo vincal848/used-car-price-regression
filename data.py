@@ -37,7 +37,7 @@ SYNTHETIC_DRIVETRAIN_EFFECTS = {"FWD": 0.0, "RWD": 800.0, "AWD": 1500.0}
 SYNTHETIC_NOISE_SD = 1800.0
 
 
-def load_used_cars(path):
+def load_used_cars(path: str) -> pd.DataFrame:
     """Read the course spreadsheet and check it has the columns the models need.
 
     Raises ValueError naming the missing columns rather than letting a later
@@ -50,7 +50,7 @@ def load_used_cars(path):
     return df
 
 
-def clean_used_cars(df):
+def clean_used_cars(df: pd.DataFrame) -> pd.DataFrame:
     """Fix the two things in the raw file that block a numeric regression.
 
     - `Engine` uses the literal string 'E' for electric vehicles instead of a
@@ -84,7 +84,7 @@ def clean_used_cars(df):
     return df
 
 
-def numeric_correlations(df):
+def numeric_correlations(df: pd.DataFrame) -> pd.DataFrame:
     """Correlation matrix over the numeric columns only.
 
     `df.corr()` on a frame that still has object columns raises
@@ -94,7 +94,7 @@ def numeric_correlations(df):
     return df.select_dtypes(include="number").corr()
 
 
-def make_synthetic_used_cars(n=1000, seed=0):
+def make_synthetic_used_cars(n: int = 1000, seed: int = 0) -> pd.DataFrame:
     """A synthetic used-car dataset with known coefficients and one deliberately
     collinear pair.
 
