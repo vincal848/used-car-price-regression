@@ -109,3 +109,10 @@ def test_no_intercept_r_squared_is_the_uncentered_one():
     # overall price level, which a model with an intercept already explains
     # for free and does not count as "fit".
     assert no_intercept.rsquared - with_intercept.rsquared > 0.1
+
+    # The README's other claim: the missing intercept flips Doors' sign. The true
+    # effect is negative; with an intercept it is recovered as negative, without
+    # one it comes out positive.
+    assert data.SYNTHETIC_COEFS["Doors"] < 0
+    assert with_intercept.params["Doors"] < 0
+    assert no_intercept.params["Doors"] > 0
