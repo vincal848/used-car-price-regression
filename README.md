@@ -1,4 +1,4 @@
-# isqs4370
+# used-car-price-regression
 
 [![tests](https://github.com/vincal848/used-car-price-regression/actions/workflows/tests.yml/badge.svg)](https://github.com/vincal848/used-car-price-regression/actions/workflows/tests.yml)
 

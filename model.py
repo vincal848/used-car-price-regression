@@ -4,11 +4,12 @@ with an intercept, and with nominal categories as dummies rather than integer co
 
 import pandas as pd
 import statsmodels.formula.api as smf
+from statsmodels.regression.linear_model import RegressionResultsWrapper
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from statsmodels.tools import add_constant
 
 
-def vif_table(X):
+def vif_table(X: pd.DataFrame) -> pd.Series:
     """Variance inflation factor for each column of X, as a Series.
 
     `variance_inflation_factor` needs a constant column in the design matrix to
@@ -27,7 +28,8 @@ def vif_table(X):
     return vifs.drop("const")
 
 
-def backward_vif_elimination(X, threshold=10):
+def backward_vif_elimination(X: pd.DataFrame,
+                             threshold: float = 10) -> tuple[list[dict], list[str]]:
     """Drop the column with the highest VIF, repeatedly, until every remaining
     column is at or below threshold.
 
@@ -53,7 +55,7 @@ def backward_vif_elimination(X, threshold=10):
     return steps, list(X.columns)
 
 
-def fit_ols(df, formula):
+def fit_ols(df: pd.DataFrame, formula: str) -> RegressionResultsWrapper:
     """Fit an OLS model through the formula API.
 
     Formula strings get an intercept by default and should use `C(column)` for
